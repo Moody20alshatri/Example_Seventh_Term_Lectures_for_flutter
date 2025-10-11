@@ -1,37 +1,56 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const Main());
 }
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class Main extends StatelessWidget {
+  const Main({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home:  Scaffold(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text('Flutter Demo Home Page',style: TextStyle(color: Colors.teal,fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,),
+          title: Text("This is first App",style: TextStyle(color: Colors.white),),
+          centerTitle: true,
+          backgroundColor: Colors.indigo,
+          actions:[Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14),
+            child: Icon(Icons.shopping_cart,color: Colors.white,size: 30,),
+          )],
         ),
-        body: body(),
+        body: Column(
+          children: [
+            SizedBox(height: 100),
+            Box(colro: Colors.teal,title: "First and Last Task",),
+            Box(colro: Colors.indigo[300]!,title: "First and Last Task",),
+            Box(colro: Colors.grey[600]!,title: "First and Last Task",),
+       ] ),
       ),
     );
   }
 }
 
-class body extends StatelessWidget {
-  const body({super.key});
+class Box extends StatelessWidget {
+ final Color colro;
+ final String title;
+  const Box({
+    required this.colro,required this.title
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.teal,
+    return Container(
+      height: 95,
+      width: 500,
+      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      decoration: BoxDecoration(
+        color: colro,
+        borderRadius: BorderRadius.all(Radius.circular(10))
+      ),
+      child: Center(child: Text(title,style: TextStyle(color: Colors.white,fontSize: 20),))
     );
   }
 }
