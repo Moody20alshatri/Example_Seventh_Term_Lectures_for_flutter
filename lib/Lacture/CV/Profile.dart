@@ -96,18 +96,10 @@ class profile extends StatelessWidget {
             SizedBox(height: 8),
             SectionTitle(title: "الخبرات العملية"),
 
-            Skills(
-              name: "تطوير تطبيقات ويب باستخدام ASP.NET Core MVC و Razor Pages",
-            ),
+            Skills(name: "تطوير تطبيقات ويب باستخدام ASP.NET Core MVC و Razor Pages",),
             Skills(name: "بناء تطبيق Flutter متعدد الواجهات للهواتف"),
-            Skills(
-              name:
-                  "تطوير نظام محاسبي كامل باستخدام Entity Framework و SQL Server",
-            ),
-            Skills(
-              name:
-                  "تصميم واجهات مستخدم متقدمة UI/UX باستخدام Flutter و Bootstrap",
-            ),
+            Skills(name: "تطوير نظام محاسبي كامل باستخدام Entity Framework و SQL Server",),
+            Skills(name: "تصميم واجهات مستخدم متقدمة UI/UX باستخدام Flutter و Bootstrap",),
           ],
         ),
       ),
