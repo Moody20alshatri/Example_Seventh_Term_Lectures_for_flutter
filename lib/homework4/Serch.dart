@@ -23,43 +23,51 @@ class SerachPage4 extends StatelessWidget {
         child: ListView.builder(
           itemCount: products.length,
           itemBuilder: (context, index) {
-           return Card(
-color: Colors.indigo.shade50,
-  elevation: 4,
-  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-  child: Padding(
-    padding: const EdgeInsets.all(16),
-    child: Row(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: Image.asset(
-            products[index].picture,
-            width: 70,
-            height: 70,
-            fit: BoxFit.cover,
-          ),
-        ),
-        const SizedBox(width: 16),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              products[index].name,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 6),
-            Text(
-              "\$${products[index].price}",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.indigo,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        )
-      ],
+           return Container(
+  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+  decoration: BoxDecoration(
+    color: Colors.indigo.shade50,
+    borderRadius: BorderRadius.circular(16),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.grey.withOpacity(0.15),
+        blurRadius: 8,
+        spreadRadius: 2,
+        offset: const Offset(0, 4),
+      ),
+    ],
+  ),
+  child: ListTile(
+    contentPadding: const EdgeInsets.all(12),
+    leading: ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: Image.asset(
+        products[index].picture,
+        width: 65,
+        height: 65,
+        fit: BoxFit.cover,
+      ),
+    ),
+    title: Text(
+      products[index].name,
+      style: const TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: Colors.black87,
+      ),
+    ),
+    subtitle: Text(
+      "\$${products[index].price.toStringAsFixed(2)}",
+      style: const TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: Colors.green,
+      ),
+    ),
+    trailing: Icon(
+      Icons.arrow_forward_ios_rounded,
+      size: 18,
+      color: Colors.grey.shade600,
     ),
   ),
 );
